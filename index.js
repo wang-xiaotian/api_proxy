@@ -27,3 +27,5 @@ server.get("/https://jobs.github.com/positions.json", (req, res) => {
     res.json(x.data);
   });
 });
+
+console.log("listening 3000");
