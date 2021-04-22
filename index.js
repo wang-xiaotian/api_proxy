@@ -3,11 +3,12 @@ const server = express();
 const bodyParser = require("body-parser");
 const { getJobs } = require("./Services");
 const cors = require("cors");
-
+//server.use("/", cors());
 server.use("/https://jobs.github.com", cors());
 let PORT = 3000;
 if (process.env.PORT !== undefined) {
   PORT = process.env.PORT;
+  console.log("LISTENING...PORT:" + PORT);
 }
 server.listen(PORT);
 
@@ -31,5 +32,3 @@ server.get("/https://jobs.github.com/positions.json", (req, res) => {
     res.json(x.data);
   });
 });
-
-console.log("listening 3000");
