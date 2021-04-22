@@ -5,7 +5,11 @@ const { getJobs } = require("./Services");
 const cors = require("cors");
 
 server.use("/https://jobs.github.com", cors());
-server.listen(3000);
+let PORT = 3000;
+if (process.env.PORT !== undefined) {
+  PORT = process.env.PORT;
+}
+server.listen(PORT);
 
 server.get("/", (req, res) => {
   console.log("home route");
